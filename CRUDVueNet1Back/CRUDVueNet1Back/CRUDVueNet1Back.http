@@ -1,0 +1,6 @@
+@CRUDVueNet1Back_HostAddress = http://localhost:5088
+
+GET {{CRUDVueNet1Back_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
