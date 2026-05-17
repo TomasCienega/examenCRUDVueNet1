@@ -19,6 +19,7 @@ builder.Services.AddDbContext<CrudvueNet1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSQL")); 
 });
 builder.Services.AddScoped<IDepartamentoService,DepartamentoServiceImpl>();
+builder.Services.AddScoped<IEmpleadoService,EmpleadoServiceImpl>();
 
 var app = builder.Build();
 

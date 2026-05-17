@@ -2,7 +2,7 @@
 
 namespace CRUDVueNet1Back.Utilities
 {
-    public class ApiResponse<T> where T : class
+    public class ApiResponse<T>
     {
         public HttpStatusCode StatusCode { get; set; }
         public bool IsSuccess { get; set; }
