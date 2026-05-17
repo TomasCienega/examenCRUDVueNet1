@@ -1,0 +1,73 @@
+## ---------- BACK ----------
+## ---------- COMPILACIÓN (.NET) ----------
+# Ignorar las carpetas donde se genera el ejecutable y los archivos temporales
+bin/
+obj/
+
+## ---------- CONFIGURACIÓN DE USUARIO ----------
+# Ignorar archivos de configuración de Visual Studio personales (filtros, posiciones de ventanas)
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## ---------- PAQUETES (NuGet) ----------
+# Los paquetes se restauran automáticamente, no se suben al repositorio
+*.nuget.props
+*.nuget.targets
+packages/
+
+## ---------- SISTEMA OPERATIVO ----------
+# Archivos basura que crean Windows o Mac automáticamente
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+## ---------- SEGURIDAD (Opcional pero recomendado) ----------
+# Si en el futuro usas configuraciones locales con contraseñas, no las subas
+appsettings.Development.json
+
+
+
+## ---------- FRONT ----------
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# Vite
+*.timestamp-*-*.mjs
