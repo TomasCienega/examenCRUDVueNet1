@@ -1,3 +1,7 @@
+using CRUDVueNet1Back.Context;
+using CRUDVueNet1Back.Services.Contratos;
+using CRUDVueNet1Back.Services.Implementations;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Scalar.AspNetCore;
 
@@ -10,6 +14,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<CrudvueNet1Context>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSQL")); 
+});
+builder.Services.AddScoped<IDepartamentoService,DepartamentoServiceImpl>();
 
 var app = builder.Build();
 

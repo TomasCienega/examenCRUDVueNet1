@@ -28,7 +28,7 @@ Desktop.ini
 ## ---------- SEGURIDAD (Opcional pero recomendado) ----------
 # Si en el futuro usas configuraciones locales con contraseñas, no las subas
 appsettings.Development.json
-
+appsettings.json
 
 
 ## ---------- FRONT ----------
