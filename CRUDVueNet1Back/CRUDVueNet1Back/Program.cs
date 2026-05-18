@@ -4,12 +4,19 @@ using CRUDVueNet1Back.Services.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Scalar.AspNetCore;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var secretKey = jwtSettings.GetValue<string>("Key");
+var keyBytes = Encoding.ASCII.GetBytes(secretKey!);  
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
@@ -20,6 +27,16 @@ builder.Services.AddDbContext<CrudvueNet1Context>(options =>
 });
 builder.Services.AddScoped<IDepartamentoService,DepartamentoServiceImpl>();
 builder.Services.AddScoped<IEmpleadoService,EmpleadoServiceImpl>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PoliticaVue", app =>
+    {
+        app.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
