@@ -256,7 +256,6 @@ namespace CRUDVueNet1Back.Services.Implementations
                 {
                     _listaEmpleadosBD = await _contexto.Empleados
                         .FromSqlRaw("EXEC sp_ListarEmpleadosPorIdDepartamento {0}", idDep)
-                        .AsNoTracking()
                         .ToListAsync();
 
                     var idDetptos = _listaEmpleadosBD.Select(e => e.IdDepartamento).Distinct().ToList();

@@ -67,3 +67,5 @@ begin
 	set activo = case when activo = 1 then 0 else 1 end
 	where idEmpleado = @idEmpleado
 end
+
+
